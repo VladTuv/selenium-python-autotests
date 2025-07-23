@@ -1,0 +1,45 @@
+from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
+
+class AccountInfoPage(BasePage):
+    _TITLE_MR_RADIO = (By.ID, 'id_gender1')
+    _PASSWORD_INPUT = (By.ID, 'password')
+    _DAYS_SELECT = (By.ID, 'days')
+    _MONTHS_SELECT = (By.ID, 'months')
+    _YEARS_SELECT = (By.ID, 'years')
+    _NEWSLETTER_CHECKBOX = (By.ID, 'newsletter')
+    _OPTIN_CHECKBOX = (By.ID, 'optin')
+    _FIRST_NAME_INPUT = (By.ID, 'first_name')
+    _LAST_NAME_INPUT = (By.ID, 'last_name')
+    _COMPANY_INPUT = (By.ID, 'company')
+    _ADDRESS1_INPUT = (By.ID, 'address1')
+    _ADDRESS2_INPUT = (By.ID, 'address2')
+    _COUNTRY_SELECT = (By.ID, 'country')
+    _STATE_INPUT = (By.ID, 'state')
+    _CITY_INPUT = (By.ID, 'city')
+    _ZIPCODE_INPUT = (By.ID, 'zipcode')
+    _MOBILE_NUMBER_INPUT = (By.ID, 'mobile_number')
+    _CREATE_ACCOUNT_BUTTON = (By.CSS_SELECTOR, 'button[data-qa="create-account"]')
+
+    def __init__(self, driver):
+        super().__init__(driver)
+
+    def fill_account_information(self, user_data):
+        self._click(self._TITLE_MR_RADIO)
+        self._send_keys(self._PASSWORD_INPUT, user_data['password'])
+        self._select_by_value(self._DAYS_SELECT, user_data['dob_day'])
+        self._select_by_value(self._MONTHS_SELECT, user_data['dob_month'])
+        self._select_by_value(self._YEARS_SELECT, user_data['dob_year'])
+        self._click(self._NEWSLETTER_CHECKBOX)
+        self._click(self._OPTIN_CHECKBOX)
+        self._send_keys(self._FIRST_NAME_INPUT, user_data['first_name'])
+        self._send_keys(self._LAST_NAME_INPUT, user_data['last_name'])
+        self._send_keys(self._COMPANY_INPUT, user_data['company'])
+        self._send_keys(self._ADDRESS1_INPUT, user_data['address1'])
+        self._send_keys(self._ADDRESS2_INPUT, user_data['address2'])
+        self._select_by_value(self._COUNTRY_SELECT, user_data['country'])
+        self._send_keys(self._STATE_INPUT, user_data['state'])
+        self._send_keys(self._CITY_INPUT, user_data['city'])
+        self._send_keys(self._ZIPCODE_INPUT, user_data['zipcode'])
+        self._send_keys(self._MOBILE_NUMBER_INPUT, user_data['mobile_number'])
+        self._click(self._CREATE_ACCOUNT_BUTTON)

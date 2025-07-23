@@ -1,0 +1,35 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#tab-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+#tab-content code {
+    border-radius: 6px;
+}
+
+#tab-content pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#tab-content pre::-webkit-scrollbar-track {
+    background: #282c34;
+    border-radius: 4px;
+}
+
+#tab-content pre::-webkit-scrollbar-thumb {
+    background-color: #5c6370;
+    border-radius: 4px;
+    border: 2px solid #282c34; 
+}
+
+#tab-content pre::-webkit-scrollbar-thumb:hover {
+    background-color: #6d7583;
+}
